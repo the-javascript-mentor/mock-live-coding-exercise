@@ -63,4 +63,4 @@ const diceGame = (rollsArray) => {
   return [player1score, player2score];
 };
 
-export default diceGame;
+module.exports = diceGame;

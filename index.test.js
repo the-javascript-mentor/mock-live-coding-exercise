@@ -1,9 +1,9 @@
-import diceGame from "./index";
+const diceGame = require("./solution.js");
 
 it("diceGame 1", () => {
   expect(diceGame([1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6])).toStrictEqual([
     21,
-    21
+    21,
   ]);
 });
 

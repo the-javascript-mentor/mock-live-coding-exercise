@@ -1,0 +1,27 @@
+{
+  "name": "mock-live-coding-exercise",
+  "version": "1.0.0",
+  "description": "A mock live coding exercise to help you prepare for job inteviews",
+  "main": "solution.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bence-toth/mock-live-coding-exercise.git"
+  },
+  "keywords": [
+    "Mock",
+    "tech",
+    "challenge"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bence-toth/mock-live-coding-exercise/issues"
+  },
+  "homepage": "https://github.com/bence-toth/mock-live-coding-exercise#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
