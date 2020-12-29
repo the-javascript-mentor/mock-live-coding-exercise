@@ -13,44 +13,54 @@
 // an array of individual dice rolls, and returns an array
 // of two numbers with the score of the two players.
 
-// [1, 2, 3, 4, 1, 2, 3, 3, 4, 1, 2]
+// Let's calculate the sum of all the turns in the playerTurns array
+const calculateOverallScoreOfPlayer = (playerTurns) => {
+  return playerTurns.flat().reduce((a, b) => a + b, 0);
+};
+
+// If this is the first or second roll in the turn
+// or if this is the third roll in the turn
+// but the first and the second rolls were the same
+const doesTurnContinue = (turn) => {
+  return turn.length <= 1 || (turn.length === 2 && turn[0] === turn[1]);
+};
+
+// If there are already 3 rolls in the turn,
+// or if there are two rolls, but they are different
+const didTurnEnd = (turn) => {
+  return turn.length === 3 || (turn.length === 2 && turn[0] !== turn[1]);
+};
 
 const diceGame = (rollsArray) => {
   const player1 = [];
   const player2 = [];
   let activeTurn = [];
 
-  let activePlayer = 1;
+  // We start with player 1
+  let activePlayer = player1;
+
+  // We go through each individual die roll
   rollsArray.forEach((roll) => {
-    if (activeTurn.length <= 1) {
-      activeTurn.push(roll);
-    } else if (activeTurn.length === 2 && activeTurn[0] === activeTurn[1]) {
+    if (doesTurnContinue(activeTurn)) {
       activeTurn.push(roll);
     }
-    if (
-      activeTurn.length === 3 ||
-      (activeTurn.length === 2 && activeTurn[0] !== activeTurn[1])
-    ) {
-      if (activePlayer === 1) {
-        player1.push(activeTurn);
-      } else if (activePlayer === 2) {
-        player2.push(activeTurn);
-      }
-
+    // If this is the end of the turn
+    if (didTurnEnd(activeTurn)) {
+      // Save the turn in the player's turns array
+      activePlayer.push(activeTurn);
+      // Clear the active turn
       activeTurn = [];
-
-      if (activePlayer === 1) {
-        activePlayer = 2;
-      } else if (activePlayer === 2) {
-        activePlayer = 1;
-      }
+      // Switch to the other player
+      activePlayer = activePlayer === player1 ? player2 : player1;
     }
   });
 
-  return [
-    player1.flat().reduce((a, b) => a + b, 0),
-    player2.flat().reduce((a, b) => a + b, 0)
-  ];
+  // Calculate the overall score of both players
+  const player1score = calculateOverallScoreOfPlayer(player1);
+  const player2score = calculateOverallScoreOfPlayer(player2);
+
+  // Return the score of both players
+  return [player1score, player2score];
 };
 
 export default diceGame;
