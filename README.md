@@ -1,6 +1,6 @@
 # Mock live coding exercise
 
-A mock live coding exercise to help you prepare for job inteviews.
+A mock live coding exercise to help you prepare for job interviews.
 
 
 ## The exercise
