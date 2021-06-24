@@ -5,7 +5,7 @@ A mock live coding exercise to help you prepare for job interviews.
 
 ## The exercise
 
-There is a simple they play with dice.
+There is a simple game they play with dice.
 
 There are two players. The game consists of turns. In each turn, the player rolls two dice. If the two numbers are different, then the turn is over and the next player continues. If the two numbers are the same, the player can roll again with one die before the turn ends.
 
